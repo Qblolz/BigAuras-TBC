@@ -90,19 +90,20 @@ function BigAurasSubOptionProfile_ActivateProfile(profile)
 end
 
 function SetBigAurasUnitProfileSetting(profile, unit, value, optionName, valueName)
-	if not ( profile and unit ) then
-		return;
-	end
+    if not ( profile and unit ) then
+        return;
+    end
 
-	for key, profiles in pairs(PROFILES) do
-		if ( profiles.name == profile ) then
-			if ( type(profiles[unit][optionName])=="table"  ) then
-				profiles[unit][optionName][valueName] = value;
-			else
-				profiles[unit][optionName] = value;
-			end
-		end
-	end
+    for key, profiles in pairs(PROFILES) do
+        if ( profiles.name == profile ) then
+            if ( valueName ) then
+                profiles[unit][optionName] = profiles[unit][optionName] or {}
+                profiles[unit][optionName][valueName] = value;
+            else
+                profiles[unit][optionName] = value;
+            end
+        end
+    end
 end
 
 function GetBigAurasUnitProfileSetting(profile, unit, optionName, valueName)
@@ -136,11 +137,19 @@ function GetSpellDataBySpellID(unit, spellID)
 			spellData.categoryPriority = profile[unit][category.name]["value"] or category.slider
 			
 			if (type(_value) ~= "table" and _spellId == spellID) then
-				spellData.spellPriority = profile[unit][spellID] or _value
+				if profile[unit][spellID] ~= nil then
+					spellData.spellPriority = profile[unit][spellID]["value"]
+				else
+					spellData.spellPriority = _value
+				end
 				
 				return spellData;
 			elseif type(_value) == "table" and _spellId == spellID then
-				spellData.spellPriority = profile[unit][_value.parent] or category.spells[_value.parent]
+				if profile[unit][_value.parent] ~= nil then
+					spellData.spellPriority = profile[unit][_value.parent]["value"]
+				else
+					spellData.spellPriority = category.spells[_value.parent]
+				end
 				
 				return spellData;
 			end

@@ -206,10 +206,10 @@
 				<Scripts>
 					<OnLoad>
 						BigAurasOptionProfileCheckButton_InitializeWidget(self, "enable", "enable", nil, function(self)
-						local currentValue = GetBigAurasUnitProfileSetting(BigAurasOption.activeProfile, self.unit, optionName or self.optionName, self.valueName);
-						self:SetChecked(currentValue);
-						self.NotDisable = true;
-						BigAurasOptionProileCheckButton_SetEnabled(self, currentValue);
+							local currentValue = GetBigAurasUnitProfileSetting(BigAurasOption.activeProfile, self.unit, optionName or self.optionName, self.valueName);
+							self:SetChecked(currentValue);
+							self.NotDisable = true;
+							BigAurasOptionProileCheckButton_SetEnabled(self, currentValue);
 						end);
 					</OnLoad>
 					<OnClick>
@@ -377,8 +377,8 @@
 				<Scripts>
 					<OnLoad>
 						BigAurasOptionProfileCheckButton_InitializeWidget(self, "showSwipe", "showSwipe", nil, function(self)
-						local currentValue = GetBigAurasUnitProfileSetting(BigAurasOption.activeProfile, self.unit, optionName or self.optionName, self.valueName);
-						self:SetChecked(currentValue);
+							local currentValue = GetBigAurasUnitProfileSetting(BigAurasOption.activeProfile, self.unit, optionName or self.optionName, self.valueName);
+							self:SetChecked(currentValue);
 						end)
 					</OnLoad>
 				</Scripts>
@@ -390,8 +390,8 @@
 				<Scripts>
 					<OnLoad>
 						BigAurasOptionProfileCheckButton_InitializeWidget(self, "timertext", "timertext", nil, function(self)
-						local currentValue = GetBigAurasUnitProfileSetting(BigAurasOption.activeProfile, self.unit, optionName or self.optionName, self.valueName);
-						self:SetChecked(currentValue);
+							local currentValue = GetBigAurasUnitProfileSetting(BigAurasOption.activeProfile, self.unit, optionName or self.optionName, self.valueName);
+							self:SetChecked(currentValue);
 						end);
 					</OnLoad>
 				</Scripts>
