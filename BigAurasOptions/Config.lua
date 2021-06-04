@@ -130,6 +130,11 @@ function ns:GetCategories()
 				[5530] = 1, -- Mace Spec Stun (Warrior & Rogue)
 				[5246] = 1, -- Intimidating Shout
 					[20511] = { parent = 5246 },
+				[22703] = 1, -- Inferno Effect
+				[30283] = 1, -- Shadowfury
+					[30413] = { parent = 30283 },
+					[30414] = { parent = 30283 },
+				[43523] = 1, -- Unstable Affliction
 			}
 		},
 		{
@@ -193,11 +198,6 @@ function ns:GetCategories()
 					[11739] = { parent = 6229 },
 					[11740] = { parent = 6229 },
 					[28610] = { parent = 6229 },
-				[22703] = 1, -- Inferno Effect
-				[30283] = 1, -- Shadowfury
-					[30413] = { parent = 30283 },
-					[30414] = { parent = 30283 },
-				[43523] = 1, -- Unstable Affliction
 				[18708] = 1, -- Fel Domination
 				[16188] = 1, -- Nature's Swiftness
 				[30823] = 1, -- Shamanistic Rage
