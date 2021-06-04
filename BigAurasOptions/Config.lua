@@ -14,6 +14,7 @@ function ns:GetCategories()
 			name = "crowdcontrol",
 			slider = CROWD_CONTROL_slider,
 			spells = {
+				[33786] = 1, -- Cyclone
 				[20549] = 1, -- War Stomp
 				[1090] = 1, -- Magic Dust
 				[13327] = 1, -- Reckless Charge
@@ -269,7 +270,6 @@ function ns:GetCategories()
 					[1020] = { parent = 642 },
 					[5573] = { parent = 642 },
 				[19753] = 1, -- Divine Intervention
-				[33786] = 1, -- Cyclone
 				[45438] = 1, -- Ice Block
 			}
 		},
