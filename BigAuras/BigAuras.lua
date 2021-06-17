@@ -325,6 +325,7 @@ function BigAuras:GetOrCreate(unit)
 		
 		if not self.frames[unit] then
 			self.frames[unit] = self:CreateFrame(unit, parent)
+			self.frames[unit]:SetScript("OnUpdate", nil)
 		else
 			local oldParent = self.frames[unit]:GetParent()
 			if oldParent ~= parent then
@@ -336,7 +337,6 @@ function BigAuras:GetOrCreate(unit)
 		local frame = self.frames[unit]
 		
 		frame.Cooldown:SetDrawSwipe(self.db[unit].showSwipe)
-		frame:SetScript("OnUpdate", nil)
 		frame.Text:Hide()
 		frame.Cooldown:Show()
 		frame.SetTime = SetCooldownTime
