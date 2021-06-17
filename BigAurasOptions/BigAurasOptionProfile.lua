@@ -166,18 +166,20 @@ function GetSpellDataBySpellID(unit, targetSpellID)
 
 		if spellData.categoryName ~= nil and spellData.categoryPriority ~= nil and spellData.spellPriority ~= nil then
 			local result = {}
-
+			
 			result.spellPriority = spellData.spellPriority
 			result.categoryPriority = profile[unit][spellData.categoryName]["value"] or spellData.categoryPriority
-
+			
 			if profile[unit][spellID] ~= nil then
-				if profile[unit][spellID]["enabled"] == nil or profile[unit][spellID]["enabled"] == true then
+				if profile[unit][spellID]["value"] then
 					result.spellPriority = profile[unit][spellID]["value"] or spellData.spellPriority
-				else
+				end
+			
+				if profile[unit][spellID]["enabled"] == false then
 					result.spellPriority = 0
 				end
 			end
-
+			
 			return result
 		end
 	end
