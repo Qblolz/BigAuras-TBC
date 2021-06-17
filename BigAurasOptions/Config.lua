@@ -6,10 +6,9 @@ local CROWD_CONTROL_slider = 8;
 local BUFF_DEFENSIVE_slider = 7;
 local BUFF_OFFENSIVE_slider = 6;
 local ROOTS_slider = 5;
-local OTHER_slider = 4
--- Я ЕЩЕ ПЕРЕДЕЛАЛ ТАБЛИЦУ ДЕФОЛТНУЮ. ТЕПЕРЬ ОНА ВЫГЛЯДИТ ВОТ ТАК
-function ns:GetCategories()
-	return {
+local OTHER_slider = 4;
+
+_CATEGORIES = {
 		{
 			name = "crowdcontrol",
 			slider = CROWD_CONTROL_slider,
@@ -136,6 +135,8 @@ function ns:GetCategories()
 					[30413] = { parent = 30283 },
 					[30414] = { parent = 30283 },
 				[43523] = 1, -- Unstable Affliction
+				[25046] = 1, -- Arcane Torrent
+					[28730] = { parent = 25046 }, 
 			}
 		},
 		{
@@ -335,11 +336,9 @@ function ns:GetCategories()
 			}
 		},
 	};
-end
 
-local categories = ns:GetCategories()
 function ns:GetCategoryByName(category)
-    for key, tab in pairs(categories) do
+    for key, tab in pairs(_CATEGORIES) do
         if ( tab.name == category ) then
             return tab;
         end
@@ -348,7 +347,7 @@ end
 
 
 function ns:GetCategoryBySpellID(spellID) -- А ВОТ КАТЕГОРИИ ПО СПЕЛЛ АЙДИ
-    for i, category in pairs(categories) do
+    for i, category in pairs(_CATEGORIES) do
 		for spellId in pairs(category.spells) do
 			if ( spellID == spellId ) then
 				return category.name
