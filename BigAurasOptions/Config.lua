@@ -165,6 +165,7 @@ _CATEGORIES = {
 					[10191] = { parent = 1463 },
 					[10192] = { parent = 1463 },
 					[10193] = { parent = 1463 },
+					[27131] = { parent = 1463 },
 				[7744] = 1, -- Will of the Forsaken
 				[20594] = 1, -- Stoneform
 				[6615] = 1, -- Free Action Potion
