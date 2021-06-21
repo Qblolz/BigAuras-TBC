@@ -310,11 +310,9 @@ function BigAuras:GetParent(unit)
 end
 
 function BigAuras:GetOrCreate(unit)
-	if not self.db then
-		self.db = GetBigAurasProfile()
-	end
+	self.db = GetCurrentProfileData()
 	
-	local db = self.db[unit]
+	local db = self.db and self.db[unit] or nil
 	if db ~= nil and db.enable then
 		local parent, portrait = self:GetParent(unit)
 		parent = parent or UIParent
@@ -434,7 +432,7 @@ end
 
 local auraFilters = {"HARMFUL", "HELPFUL"}
 function BigAuras:UpateUnit(unit)
-	if (self.db[unit] and self.frames[unit]) then
+	if (self.db ~= nil and self.db[unit] and self.frames[unit]) then
 		local frame = self.db[unit].enable and self.frames[unit]
 		if not frame then return end
 		for _, auraFilter in ipairs(auraFilters) do

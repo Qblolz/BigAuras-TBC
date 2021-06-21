@@ -358,7 +358,7 @@ function ns:GetCategoryBySpellID(spellID) -- А ВОТ КАТЕГОРИИ ПО �
 end
 
 function ns:GetPriorityBySpellID(unit, spellID) -- // ВОТ ПО ЮНИТЫ МОЖНО ПОЛУЧИТЬ ПРИОРИТЕТ СПЕЛЛ АЙДИ ЕСЛИ ОН ЕСТЬ В БД ВЕРНЕТ ЕГО ЗНАЧЕНИЕ ИЛИ 1 ПО ДЕФОЛТУ
-    return GetBigAurasUnitProfileSetting("DEFAULT_PROFILE_NAME", unit, spellID, "value") or 1
+    return GetBigAurasUnitProfileSetting(unit, spellID, "value") or 1
 end
 
 function ns:CreateDefaultProfile()
